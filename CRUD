@@ -1,0 +1,125 @@
+# Login
+```
+http://localhost:8069/jsonrpc/
+```
+
+```
+   {
+        "jsonrpc": "2.0",
+        "method": "call",
+        "params": {"service": "common", "method": "login", "args": ["dbname", "user", "paswd"]}
+    }
+```
+
+# Get Products
+```
+      {
+        "jsonrpc": "2.0",
+        "method": "call",
+        "params": {
+                    "service": "object", 
+                    "method": "execute", 
+                    "args": ["dbname", IDuser, "passwd", "product.template", "search_read", [], []]}
+      }
+```
+
+# Sale Order by customer
+```
+{
+        "jsonrpc": "2.0",
+        "method": "call",
+        "params": {
+                    "service": "object", 
+                    "method": "execute", 
+                    "args": ["dbname", IDuser, "passwd", "sale.order", "search_read", 
+                            [ ["partner_id", "=", 7 ] ], 
+                            ["name"]
+                            ]}
+    }
+```
+
+# Get Product
+```
+{
+        "jsonrpc": "2.0",
+        "method": "call",
+        "params": {
+                    "service": "object", 
+                    "method": "execute", 
+                    "args": ["dbname", IDuser, "passwd", "product.template", "read", [1], []]}
+    }   
+```
+
+# Delete Product
+```
+{
+        "jsonrpc": "2.0",
+        "method": "call",
+        "params": {
+                    "service": "object", 
+                    "method": "execute", 
+                    "args": ["dbname", IDuser, "passwd", "product.template", "unlink", [4] ]}
+    }
+```
+
+
+# Validate Invoice
+```
+{
+        "jsonrpc": "2.0",
+        "method": "call",
+        "params": {
+                    "service": "object", 
+                    "method": "execute", 
+                    "args": ["dbname", IDuser, "passwd", "account.move", "action_post", [12] ]}
+    }
+```
+
+# Validate Sale Order
+```
+{
+        "jsonrpc": "2.0",
+        "method": "call",
+        "params": {
+                    "service": "object", 
+                    "method": "execute", 
+                    "args": ["dbname", IDuser, "passwd", "sale.order", "action_confirm", [12] ]}
+    }
+```
+
+# Create Product
+```
+{
+        "jsonrpc": "2.0",
+        "method": "call",
+        "params": {
+                    "service": "object", 
+                    "method": "execute", 
+                    "args": ["dbname", IDuser, "passwd", "product.template", "create", {
+                        "name" : "demo",
+                        "default_code" : "AZUL01010"
+                    }]}
+    }
+```
+
+# Create Sale Order
+```
+{
+        "jsonrpc": "2.0",
+        "method": "call",
+        "params": {
+                    "service": "object", 
+                    "method": "execute", 
+                    "args": ["dbname", IDuser, "passwd", "sale.order", "create", {
+                        "partner_id" : 7,
+                        "order_line" : [ 
+                                            [0,0, { 
+                                                    "product_id": 1 , 
+                                                    "product_uom_qty": 12,
+                                                    "price_unit" : 5
+                                                    }] 
+                                        ]
+                        
+                    }]}
+    }
+```
